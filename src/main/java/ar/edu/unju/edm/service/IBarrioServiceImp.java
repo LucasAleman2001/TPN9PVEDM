@@ -20,11 +20,6 @@ public class IBarrioServiceImp implements IBarrioService {
 	}
 
 	@Override
-	public List<Barrio> listarBarrios() {
-		return iBarrioRepository.listarBarrios();
-	}
-
-	@Override
 	public Barrio modificarBarrio(Barrio barrio) throws Exception {
 		Barrio barrioGuardado = buscarBarrio(barrio.getIdBarrio());
 		mapearBarrio(barrio, barrioGuardado);

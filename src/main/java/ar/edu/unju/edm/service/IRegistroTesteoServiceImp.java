@@ -20,11 +20,6 @@ public class IRegistroTesteoServiceImp implements IRegistroTesteoService {
 	}
 
 	@Override
-	public List<RegistroTesteo> listarRegistrosTesteos() {
-		return iRegistroTesteoRepository.listarRegistroTesteo();
-	}
-
-	@Override
 	public RegistroTesteo modificarRegistroTesteo(RegistroTesteo registroTesteo) throws Exception {
 		RegistroTesteo registroTesteoGuardado = buscarRegistroTesteo(registroTesteo.getIdRegistroTesteo());
 		mapearRegistroTesteo(registroTesteo, registroTesteoGuardado);

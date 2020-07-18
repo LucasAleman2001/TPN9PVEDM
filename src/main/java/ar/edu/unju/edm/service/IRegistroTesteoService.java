@@ -10,7 +10,6 @@ import ar.edu.unju.edm.modelo.RegistroTesteo;
 public interface IRegistroTesteoService {
 	
 	public void guardarRegistroTesteo(RegistroTesteo registroTesteo);
-	public List<RegistroTesteo> listarRegistrosTesteos();
 	public RegistroTesteo modificarRegistroTesteo(RegistroTesteo RegistroTesteo) throws Exception;
 	public void eliminarRegistroTesteo(Long idRegistroTesteo);
 	public RegistroTesteo buscarRegistroTesteo(Long idRegistroTesteo) throws Exception;

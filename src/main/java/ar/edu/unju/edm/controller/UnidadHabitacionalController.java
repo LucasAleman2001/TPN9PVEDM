@@ -36,12 +36,6 @@ public class UnidadHabitacionalController {
 		return "redirect:/unidadHabitacional";
 	}
 	
-	@GetMapping("/mostrarUnidadHabitacional")
-	public String mostrarUnidadHabitacional(Model model) {
-		model.addAttribute("unidadHabitacional", iUnidadHabitacionalService.listarUnidadesHabitacionales());
-		return("unidadesHabitacionales");
-	}
-	
 	@GetMapping("/editarUnidadHabitacional")
 	public String editarUnidadHabitacional(Model model, @PathVariable(name="id") Long idUnidadHabitacional) throws Exception{
 		UnidadHabitacional unidadHabitacionalEncontrado = iUnidadHabitacionalService.buscarUnidadHabitacional(idUnidadHabitacional);

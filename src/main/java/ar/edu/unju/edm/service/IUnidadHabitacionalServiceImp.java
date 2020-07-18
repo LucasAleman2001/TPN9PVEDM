@@ -20,11 +20,6 @@ public class IUnidadHabitacionalServiceImp implements IUnidadHabitacionalService
 	}
 
 	@Override
-	public List<UnidadHabitacional> listarUnidadesHabitacionales() {
-		return iUnidadHabitacionalRepository.listarUnidadesHabitacionales();
-	}
-
-	@Override
 	public UnidadHabitacional modificarUnidadHabitacional(UnidadHabitacional unidadHabitacional) throws Exception {
 		UnidadHabitacional unidadHabitacionalGuardado = buscarUnidadHabitacional(unidadHabitacional.getIdUnidadHabitacional());
 		mapearUnidadHabitacional(unidadHabitacional, unidadHabitacionalGuardado);

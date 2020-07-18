@@ -10,7 +10,6 @@ import ar.edu.unju.edm.modelo.UnidadHabitacional;
 public interface IUnidadHabitacionalService {
 	
 	public void guardarUnidadHabitacional(UnidadHabitacional unidadHabitacional);
-	public List<UnidadHabitacional> listarUnidadesHabitacionales();
 	public UnidadHabitacional modificarUnidadHabitacional(UnidadHabitacional unidadHabitacional) throws Exception;
 	public void eliminarUnidadHabitacional(Long idUnidadHabitacional);
 	public UnidadHabitacional buscarUnidadHabitacional(Long idUnidadHabitacional) throws Exception;

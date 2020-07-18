@@ -36,14 +36,8 @@ public class PersonaTesteadaController {
 		return "redirect:/personaTesteada";
 	}
 	
-	@GetMapping("/mostrarPersonasTesteadas")
-	public String mostrarPersonaTesteada(Model model) {
-		model.addAttribute("personasTesteadas", iPersonaTesteadaService.listarPersonasTesteadas());
-		return "personasTesteadas";
-	}
-	
 	@GetMapping("/editarPersonaTesteada/{id}")
-	public String editarPersonaTesteada(Model model, @PathVariable(name="id") int idPersonaTesteada) throws Exception{
+	public String editarPersonaTesteada(Model model, @PathVariable(name="id") Long idPersonaTesteada) throws Exception{
 		PersonaTesteada personaTesteadaEncontrado = iPersonaTesteadaService.buscarPersonaTesteada(idPersonaTesteada);
 		model.addAttribute("personaTesteada", personaTesteadaEncontrado);
 		model.addAttribute("EditMode", "true");
@@ -70,7 +64,7 @@ public class PersonaTesteadaController {
 	}
 	
 	@GetMapping("/eliminarPersonaTesteada")
-	public String eliminarPersonaTesteada(Model model, @PathVariable(name="id") int idPersonaTesteada) {
+	public String eliminarPersonaTesteada(Model model, @PathVariable(name="id") Long idPersonaTesteada) {
 		try {
 			iPersonaTesteadaService.eliminarPersonaTesteada(idPersonaTesteada);
 			

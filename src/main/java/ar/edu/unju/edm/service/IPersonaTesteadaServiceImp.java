@@ -20,12 +20,7 @@ public class IPersonaTesteadaServiceImp implements IPersonaTesteadaService {
 	}
 
 	@Override
-	public List<PersonaTesteada> listarPersonasTesteadas() {
-		return iPersonaTesteadaRepository.listarPersonaTesteada();
-	}
-
-	@Override
-	public void eliminarPersonaTesteada(int idPersonaTesteada) {
+	public void eliminarPersonaTesteada(Long idPersonaTesteada) {
 		iPersonaTesteadaRepository.deleteById(idPersonaTesteada);
 	}
 
@@ -43,7 +38,7 @@ public class IPersonaTesteadaServiceImp implements IPersonaTesteadaService {
 	}
 
 	@Override
-	public PersonaTesteada buscarPersonaTesteada(int idPersonaTesteada) throws Exception {
+	public PersonaTesteada buscarPersonaTesteada(Long idPersonaTesteada) throws Exception {
 		return iPersonaTesteadaRepository.findById(idPersonaTesteada).orElseThrow(()-> new Exception("El usuario no existe"));
 	}
 

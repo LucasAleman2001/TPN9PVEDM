@@ -11,6 +11,4 @@ import ar.edu.unju.edm.modelo.Barrio;
 @Repository
 public interface IBarrioRepository extends CrudRepository<Barrio, Long>{
 	
-	@Query
-	public List<Barrio> listarBarrios();
 }

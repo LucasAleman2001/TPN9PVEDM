@@ -26,7 +26,7 @@ public class PersonaTesteada implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO,generator="native")
 	@GenericGenerator(name="native",strategy="native")
 	@Column(name="IDPersona")
-	private Integer idPersonaTesteada;
+	private Long idPersonaTesteada;
 	@Column
 	private String documento;
 	@Column
@@ -40,7 +40,7 @@ public class PersonaTesteada implements Serializable{
 		
 	}
 
-	public PersonaTesteada(int idPersonaTesteada, String documento, String apellido, String nombres,
+	public PersonaTesteada(Long idPersonaTesteada, String documento, String apellido, String nombres,
 			String resultadoTesteado) {
 		super();
 		this.idPersonaTesteada = idPersonaTesteada;
@@ -50,11 +50,11 @@ public class PersonaTesteada implements Serializable{
 		this.resultadoTesteado = resultadoTesteado;
 	}
 
-	public int getIdPersonaTesteada() {
+	public Long getIdPersonaTesteada() {
 		return idPersonaTesteada;
 	}
 
-	public void setIdPersonaTesteada(int idPersonaTesteada) {
+	public void setIdPersonaTesteada(Long idPersonaTesteada) {
 		this.idPersonaTesteada = idPersonaTesteada;
 	}
 
@@ -89,14 +89,14 @@ public class PersonaTesteada implements Serializable{
 	public void setResultadoTesteado(String resultadoTesteado) {
 		this.resultadoTesteado = resultadoTesteado;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((apellido == null) ? 0 : apellido.hashCode());
 		result = prime * result + ((documento == null) ? 0 : documento.hashCode());
-		result = prime * result + idPersonaTesteada;
+		result = prime * result + ((idPersonaTesteada == null) ? 0 : idPersonaTesteada.hashCode());
 		result = prime * result + ((nombres == null) ? 0 : nombres.hashCode());
 		result = prime * result + ((resultadoTesteado == null) ? 0 : resultadoTesteado.hashCode());
 		return result;
@@ -121,7 +121,10 @@ public class PersonaTesteada implements Serializable{
 				return false;
 		} else if (!documento.equals(other.documento))
 			return false;
-		if (idPersonaTesteada != other.idPersonaTesteada)
+		if (idPersonaTesteada == null) {
+			if (other.idPersonaTesteada != null)
+				return false;
+		} else if (!idPersonaTesteada.equals(other.idPersonaTesteada))
 			return false;
 		if (nombres == null) {
 			if (other.nombres != null)

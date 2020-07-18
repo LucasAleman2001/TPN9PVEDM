@@ -36,12 +36,6 @@ public class BarrioController {
 		return "redirect:/barrio";
 	}
 	
-	@GetMapping("/mostarBarrios")
-	public String mostrarBarrios(Model model) {
-		model.addAttribute("barrios", iBarrioService.listarBarrios());
-		return "barrios";
-	}
-	
 	@GetMapping("/editarBarrio/{id}")
 	public String editarBarrio(Model model, @PathVariable(name="id") Long idBarrio) throws Exception {
 		Barrio barrioEncontrado = iBarrioService.buscarBarrio(idBarrio);

@@ -9,9 +9,8 @@ import ar.edu.unju.edm.modelo.PersonaTesteada;
 public interface IPersonaTesteadaService {
 	
 	public void guardarPersonaTesteada(PersonaTesteada personaTesteada);
-	public List<PersonaTesteada> listarPersonasTesteadas();
-	public void eliminarPersonaTesteada(int idPersonaTesteada);
+	public void eliminarPersonaTesteada(Long idPersonaTesteada);
 	public PersonaTesteada modificarPersonaTesteada(PersonaTesteada personaTesteada) throws Exception;
-	public PersonaTesteada buscarPersonaTesteada(int idPersonaTesteada) throws Exception;
+	public PersonaTesteada buscarPersonaTesteada(Long idPersonaTesteada) throws Exception;
 	
 }
