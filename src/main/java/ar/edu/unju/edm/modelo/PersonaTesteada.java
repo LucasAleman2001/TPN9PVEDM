@@ -6,16 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.GenericGenerator;
 
 
-/**
- * 
- * @author Lucas
- *
- */
-
 @Entity
+@Table(name="persona_testeada")
 public class PersonaTesteada implements Serializable{
 	
 	/**
@@ -26,6 +23,7 @@ public class PersonaTesteada implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO,generator="native")
 	@GenericGenerator(name="native",strategy="native")
+	@Column(name="IDPersona")
 	private int idPersonaTesteada;
 	@Column
 	private String documento;
@@ -36,10 +34,6 @@ public class PersonaTesteada implements Serializable{
 	@Column
 	private String resultadoTesteado;
 	
-	public PersonaTesteada() {
-		
-	}
-
 	public PersonaTesteada(int idPersonaTesteada, String documento, String apellido, String nombres, String resultadoTesteado) {
 		super();
 		this.idPersonaTesteada = idPersonaTesteada;
@@ -48,8 +42,10 @@ public class PersonaTesteada implements Serializable{
 		this.nombres = nombres;
 		this.resultadoTesteado = resultadoTesteado;
 	}
-	
-	public int getIdent() {
+	public PersonaTesteada() {
+		// TODO Auto-generated constructor stub
+	}
+	public int getIdPersonaTesteada() {
 		return idPersonaTesteada;
 	}
 

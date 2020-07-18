@@ -1,45 +1,63 @@
 package ar.edu.unju.edm.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
+
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import org.hibernate.annotations.GenericGenerator;
-import org.springframework.stereotype.Component;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Component
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+
+
+
 @Entity
+@Table(name="registro_Testeos")
 public class RegistroTesteo implements Serializable{
 	private static final long serialVersionUID=1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO,generator="native")
 	@GenericGenerator(name="native",strategy="native")
+	@Column(name="IDRegistro")
 	private Long idRegistroTesteo;
-	@Column
+	@Column(name="FECHAHORA")
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private LocalDateTime fechahora;
-	List<PersonaTesteada> personasTesteadas= new ArrayList<PersonaTesteada>();
 	
-	public RegistroTesteo() {
-		
-	}
+	
+	@Autowired
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="IDUNIDADHABITACIONAL")
+	private UnidadHabitacional unidad_habitacional;
+	
+	@Autowired
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="IDPERSONATESTEADA")
+	private PersonaTesteada persona_testeada;
 
-	public RegistroTesteo(long idRegistroTesteo, LocalDateTime fechahora, List<PersonaTesteada> personasTesteadas) {
+	public RegistroTesteo(Long idRegistroTesteo, LocalDateTime fechahora, UnidadHabitacional unidad_habitacional,
+			PersonaTesteada persona_testeada) {
 		super();
 		this.idRegistroTesteo = idRegistroTesteo;
 		this.fechahora = fechahora;
-		this.personasTesteadas = personasTesteadas;
+		this.unidad_habitacional = unidad_habitacional;
+		this.persona_testeada = persona_testeada;
 	}
 
-	public long getIdRegistroTesteo() {
+	public Long getIdRegistroTesteo() {
 		return idRegistroTesteo;
 	}
 
-	public void setIdRegistroTesteo(long idRegistroTesteo) {
+	public void setIdRegistroTesteo(Long idRegistroTesteo) {
 		this.idRegistroTesteo = idRegistroTesteo;
 	}
 
@@ -51,26 +69,34 @@ public class RegistroTesteo implements Serializable{
 		this.fechahora = fechahora;
 	}
 
-	public List<PersonaTesteada> getPersonasTesteadas() {
-		return personasTesteadas;
+	public UnidadHabitacional getUnidad_habitacional() {
+		return unidad_habitacional;
 	}
 
-	public void setPersonasTesteadas(List<PersonaTesteada> personasTesteadas) {
-		this.personasTesteadas = personasTesteadas;
+	public void setUnidad_habitacional(UnidadHabitacional unidad_habitacional) {
+		this.unidad_habitacional = unidad_habitacional;
+	}
+
+	public PersonaTesteada getPersona_testeada() {
+		return persona_testeada;
+	}
+
+	public void setPersona_testeada(PersonaTesteada persona_testeada) {
+		this.persona_testeada = persona_testeada;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((fechahora == null) ? 0 : fechahora.hashCode());
 		result = prime * result + ((idRegistroTesteo == null) ? 0 : idRegistroTesteo.hashCode());
-		result = prime * result + ((personasTesteadas == null) ? 0 : personasTesteadas.hashCode());
+		result = prime * result + ((persona_testeada == null) ? 0 : persona_testeada.hashCode());
+		result = prime * result + ((unidad_habitacional == null) ? 0 : unidad_habitacional.hashCode());
 		return result;
 	}
 
@@ -93,10 +119,15 @@ public class RegistroTesteo implements Serializable{
 				return false;
 		} else if (!idRegistroTesteo.equals(other.idRegistroTesteo))
 			return false;
-		if (personasTesteadas == null) {
-			if (other.personasTesteadas != null)
+		if (persona_testeada == null) {
+			if (other.persona_testeada != null)
 				return false;
-		} else if (!personasTesteadas.equals(other.personasTesteadas))
+		} else if (!persona_testeada.equals(other.persona_testeada))
+			return false;
+		if (unidad_habitacional == null) {
+			if (other.unidad_habitacional != null)
+				return false;
+		} else if (!unidad_habitacional.equals(other.unidad_habitacional))
 			return false;
 		return true;
 	}
@@ -104,8 +135,8 @@ public class RegistroTesteo implements Serializable{
 	@Override
 	public String toString() {
 		return "RegistroTesteo [idRegistroTesteo=" + idRegistroTesteo + ", fechahora=" + fechahora
-				+ ", personasTesteadas=" + personasTesteadas + "]";
+				+ ", unidad_habitacional=" + unidad_habitacional + ", persona_testeada=" + persona_testeada + "]";
 	}
-
 	
+
 }

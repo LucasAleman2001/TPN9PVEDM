@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ar.edu.unju.edm</groupId>
-	<artifactId>TrabajoFinalGrupo9PVEDM</artifactId>
+	<artifactId>TrabajoGrupo9PVedm</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>TrabajoFinalGrupo9PVEDM</name>
+	<name>TrabajoGrupo9PVedm</name>
 	<description>Desarrollo del TrabajoFinal</description>
 
 	<properties>
@@ -53,6 +53,24 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>
+		<dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>5.11.2</version>
+        </dependency>
 	</dependencies>
 
 	<build>
