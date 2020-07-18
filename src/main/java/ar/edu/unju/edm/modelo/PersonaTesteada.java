@@ -9,9 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.stereotype.Component;
 
 
 @Entity
+@Component
 @Table(name="persona_testeada")
 public class PersonaTesteada implements Serializable{
 	

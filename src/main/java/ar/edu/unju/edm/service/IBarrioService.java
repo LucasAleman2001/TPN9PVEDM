@@ -8,6 +8,7 @@ import ar.edu.unju.edm.modelo.Barrio;
 
 @Service
 public interface IBarrioService {
+	
 	public void guardarBarrio(Barrio barrio);
 	public List<Barrio> listarBarrios();
 	public Barrio modificarBarrio(Barrio barrio) throws Exception;

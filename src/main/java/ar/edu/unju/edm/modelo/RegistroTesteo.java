@@ -1,7 +1,5 @@
 package ar.edu.unju.edm.modelo;
 
-
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
@@ -17,9 +15,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
-
-
+@Component
 @Entity
 @Table(name="registro_Testeos")
 public class RegistroTesteo implements Serializable{
