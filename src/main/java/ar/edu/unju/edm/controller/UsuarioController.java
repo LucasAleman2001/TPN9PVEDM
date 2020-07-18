@@ -22,7 +22,7 @@ public class UsuarioController {
 	Usuario usuario;
 	
 	@Autowired
-	IUsuarioService usuarioService;
+	IUsuarioService iUsuarioService;
 	
 	@GetMapping("/nuevoUsuario")
 	public String usuarioForm(Model model) {
@@ -32,21 +32,25 @@ public class UsuarioController {
 	
 	@GetMapping("/guardarUsuario")
 	public String guardarUsuario(@ModelAttribute Usuario usuario, Model model) {
-		usuarioService.guardarUsuario(usuario);
-		model.addAttribute("usuario", usuario);
+		usuario.setApellidoReal(usuario.getApellidoReal());
+		usuario.setNombreReal(usuario.getNombreReal());
+		usuario.setNombreUsuario(usuario.getNombreUsuario());
+		usuario.setPassword(usuario.getPassword());
+		usuario.setTipoUsuario(usuario.getTipoUsuario());
+		iUsuarioService.guardarUsuario(usuario);
 		return "redirect:/usuario";
 	}
 	
 	@GetMapping("/usuario")
 	public String mostrarUsuarios(Model model) {
-		model.addAttribute("usuario", usuarioService.listarUsuarios());
+		model.addAttribute("usuario", iUsuarioService.listarUsuarios());
 		return "usuario";
 	}
 	
 	@GetMapping("/eliminarUsuario/{id}")
 	public String eliminarUsuario(Model model, @PathVariable(name="id") int idUsuario) throws Exception {
 		try {
-			usuarioService.eliminarUsuario(idUsuario);
+			iUsuarioService.eliminarUsuario(idUsuario);
 		}catch (Exception e) {
 			model.addAttribute("listErrorMessage", e.getMessage());
 		}
@@ -56,7 +60,7 @@ public class UsuarioController {
 
 	@GetMapping("/editarUsuario/{id}")
 	public String modificarUsuario(Model model, @PathVariable(name="id") int idUsuario) throws Exception {
-		usuarioService.buscarUsuario(idUsuario);
+		iUsuarioService.buscarUsuario(idUsuario);
 		model.addAttribute("editMode", "true");
 		return "usuario-form";
 	}
@@ -69,7 +73,7 @@ public class UsuarioController {
 		}else {
 			try {
 				System.out.println(usuario.getIdUsuario());
-				usuarioService.modificarUsuario(usuario);
+				iUsuarioService.modificarUsuario(usuario);
 				model.addAttribute("usuarioD", usuario);
 				model.addAttribute("editMode", "false");
 			} catch (Exception e) {
@@ -78,7 +82,7 @@ public class UsuarioController {
 				model.addAttribute("editMode", "true");
 			}
 		}
-		model.addAttribute("usuario", usuarioService.listarUsuarios());
+		model.addAttribute("usuario", iUsuarioService.listarUsuarios());
 		return "redirect:/usuario";
 	}
 	

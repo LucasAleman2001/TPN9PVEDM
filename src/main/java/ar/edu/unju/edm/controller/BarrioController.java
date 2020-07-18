@@ -32,7 +32,8 @@ public class BarrioController {
 	
 	@GetMapping("/guardarBarrio")
 	public String guardarBarrio(@ModelAttribute Barrio barrio, Model model) {
-		model.addAttribute("barrio", barrio);
+		barrio.setNombre(barrio.getNombre());
+		iBarrioService.guardarBarrio(barrio);
 		return "redirect:/barrio";
 	}
 	

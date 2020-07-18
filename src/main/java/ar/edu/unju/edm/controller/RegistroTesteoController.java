@@ -32,7 +32,10 @@ public class RegistroTesteoController {
 	
 	@GetMapping("/guardarRegistroTesteo")
 	public String guardarRegistroTesteo(@ModelAttribute RegistroTesteo registroTesteo, Model model) {
-		model.addAttribute("registroTesteo", registroTesteo);
+		registroTesteo.setFechahora(registroTesteo.getFechahora());
+		registroTesteo.setPersona_testeada(registroTesteo.getPersona_testeada());
+		registroTesteo.setUnidad_habitacional(registroTesteo.getUnidad_habitacional());
+		iRegistroTesteoService.guardarRegistroTesteo(registroTesteo);
 		return "redirect:/registroTesteo";
 	}
 	

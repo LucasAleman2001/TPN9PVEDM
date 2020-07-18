@@ -32,7 +32,9 @@ public class UnidadHabitacionalController {
 	
 	@GetMapping("/guardarUnidadHabitacional")
 	public String guardarUnidadHabitacional(@ModelAttribute UnidadHabitacional unidadHabitacional, Model model) {
-		model.addAttribute("unidadHabitacional", unidadHabitacional);
+		unidadHabitacional.setDireccion(unidadHabitacional.getDireccion());
+		unidadHabitacional.setBarrio(unidadHabitacional.getBarrio());
+		iUnidadHabitacionalService.guardarUnidadHabitacional(unidadHabitacional);
 		return "redirect:/unidadHabitacional";
 	}
 	

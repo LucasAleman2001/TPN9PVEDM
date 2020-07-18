@@ -32,7 +32,12 @@ public class PersonaTesteadaController {
 	
 	@GetMapping("/guardarPersonaTesteada")
 	public String guardarPersonaTesteada(@ModelAttribute PersonaTesteada personaTesteada, Model model) {
-		model.addAttribute("PersonaTesteada", personaTesteada);
+		personaTesteada.setDocumento(personaTesteada.getDocumento());
+		personaTesteada.setApellido(personaTesteada.getApellido());
+		personaTesteada.setNombres(personaTesteada.getNombres());
+		personaTesteada.setIdPersonaTesteada(personaTesteada.getIdPersonaTesteada());
+		personaTesteada.setResultadoTesteado(personaTesteada.getResultadoTesteado());
+		iPersonaTesteadaService.guardarPersonaTesteada(personaTesteada);
 		return "redirect:/personaTesteada";
 	}
 	

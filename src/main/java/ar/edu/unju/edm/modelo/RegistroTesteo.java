@@ -30,13 +30,10 @@ public class RegistroTesteo implements Serializable{
 	@Column(name="FECHAHORA")
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private LocalDateTime fechahora;
-	
-	
 	@Autowired
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="IDUNIDADHABITACIONAL")
 	private UnidadHabitacional unidad_habitacional;
-	
 	@Autowired
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="IDPERSONATESTEADA")
@@ -85,10 +82,6 @@ public class RegistroTesteo implements Serializable{
 
 	public void setPersona_testeada(PersonaTesteada persona_testeada) {
 		this.persona_testeada = persona_testeada;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	@Override

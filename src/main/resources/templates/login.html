@@ -3,15 +3,29 @@
 <head>
     <meta charset="utf-8">
     <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <ul class="clearfix">
+                <li class="form-control"><a href="index.html">Home</a></li>
+            </ul>
+        </div>
+     </header>
     <form method="#" th:action="#" th:object="#" class="container">
         <div class="form-group">   <label for="usuario" class="control-label">Usuario:</label>  <input class="form-control" type="name" placeholder="Usuario" id="usuario" th:field="${#}"> </div>
         <div class="form-group">   <label for="Contraseña" class="control-label">Contraseña:</label>   <input class="form-control" type="password" placeholder="Contraseña" th:field="${#}"> </div>
         <div class="form-group">   <input class="btn btn-primary" type="submit" value="Entrar" th:value="${#}"></div>
     </form>
 </body>
+<footer>
+    <div class="container">
+        <ul class="clearfix">
+            <li class="form-control"><a>Telefono: +5493887189283</a></li>
+            <li class="form-control"><a>Direccion: Avenida Siempre Viva Nro 1267</a></li>
+        </ul>
+    </div>
+</footer>
 </html>
