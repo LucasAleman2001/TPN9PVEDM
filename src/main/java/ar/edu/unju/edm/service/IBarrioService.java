@@ -12,7 +12,6 @@ public interface IBarrioService {
 	public void guardarBarrio(Barrio barrio);
 	public List<Barrio> listarBarrios();
 	public Barrio modificarBarrio(Barrio barrio) throws Exception;
-	public Barrio encontrarBarrio(Long idBarrio) throws Exception;
 	public void eliminarBarrio(Long idBarrio);
 	public Barrio buscarBarrio(Long idBarrio) throws Exception;
 }

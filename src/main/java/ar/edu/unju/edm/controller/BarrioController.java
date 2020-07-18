@@ -44,13 +44,13 @@ public class BarrioController {
 	
 	@GetMapping("/editarBarrio/{id}")
 	public String editarBarrio(Model model, @PathVariable(name="id") Long idBarrio) throws Exception {
-		Barrio barrioEncontrado = iBarrioService.encontrarBarrio(idBarrio);
+		Barrio barrioEncontrado = iBarrioService.buscarBarrio(idBarrio);
 		model.addAttribute("barrio", barrioEncontrado);
 		model.addAttribute("editMode","true");
 		return "barrio-form";
 	}
 	
-	@PostMapping("/editarBarrio")
+	@PostMapping("/postEditarBarrio")
 	public String postEditarBarrio(@ModelAttribute("barrio") Barrio barrio, BindingResult result, ModelMap model) {
 		if(result.hasErrors()) {
 			model.addAttribute("barrio", barrio);
@@ -81,7 +81,7 @@ public class BarrioController {
 		return "redirect:/barrio";		
 	}
 	
-	@GetMapping("/cancelarB")
+	@GetMapping("/cancelarBarrio")
 	public String cancelarEditarBarrio(ModelMap model) {
 		return "redirect:/barrio";		
 	}

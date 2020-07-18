@@ -9,13 +9,10 @@ import ar.edu.unju.edm.modelo.Barrio;
 import ar.edu.unju.edm.repository.IBarrioRepository;
 
 @Service
-public class BarrioServiceImp implements IBarrioService {
+public class IBarrioServiceImp implements IBarrioService {
 	
 	@Autowired
 	IBarrioRepository iBarrioRepository;
-	
-	@Autowired
-	Barrio barrio;
 	
 	@Override
 	public void guardarBarrio(Barrio barrio) {
@@ -29,11 +26,11 @@ public class BarrioServiceImp implements IBarrioService {
 
 	@Override
 	public Barrio modificarBarrio(Barrio barrio) throws Exception {
-		Barrio barrioGuardar = encontrarBarrio(barrio.getIdBarrio());
-		zonearBarrio(barrio, barrioGuardar);
-		return iBarrioRepository.save(barrioGuardar);
+		Barrio barrioGuardado = buscarBarrio(barrio.getIdBarrio());
+		mapearBarrio(barrio, barrioGuardado);
+		return iBarrioRepository.save(barrioGuardado);
 	}
-	public void zonearBarrio(Barrio desde, Barrio hacia) {
+	public void mapearBarrio(Barrio desde, Barrio hacia) {
 		hacia.setNombre(desde.getNombre());
 	}
 
@@ -47,11 +44,6 @@ public class BarrioServiceImp implements IBarrioService {
 	public Barrio buscarBarrio(Long idBarrio) throws Exception {
 		iBarrioRepository.findById(idBarrio);
 		return null;
-	}
-
-	@Override
-	public Barrio encontrarBarrio(Long idBarrio) throws Exception {
-		return iBarrioRepository.findById(idBarrio).orElseThrow(()-> new Exception("El barrio no existe"));
 	}
 
 }

@@ -10,7 +10,7 @@ import ar.edu.unju.edm.modelo.Usuario;
 import ar.edu.unju.edm.repository.IUsuarioRepository;
 
 @Service
-public class UsuarioServiceImp implements IUsuarioService {
+public class IUsuarioServiceImp implements IUsuarioService {
 	
 	@Autowired
 	IUsuarioRepository iUsuarioRepository;
@@ -33,7 +33,6 @@ public class UsuarioServiceImp implements IUsuarioService {
 		hacia.setNombreReal(desde.getNombreReal());
 		hacia.setApellidoReal(desde.getApellidoReal());
 		hacia.setNombreUsuario(desde.getNombreUsuario());
-		//hacia.setPassword(desde.getPassword());
 		hacia.setTipoUsuario(desde.getTipoUsuario());
 	}
 

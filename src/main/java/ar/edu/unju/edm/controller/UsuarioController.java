@@ -38,16 +38,9 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/usuario")
-	public String listarUsuarios(Model model) {
+	public String mostrarUsuarios(Model model) {
 		model.addAttribute("usuario", usuarioService.listarUsuarios());
 		return "usuario";
-	}
-	
-	@GetMapping("/editarUsuario/{id}")
-	public String modificarUsuario(Model model, @PathVariable(name="id") int idUsuario) throws Exception {
-		usuarioService.buscarUsuario(idUsuario);
-		model.addAttribute("editMode", "true");
-		return "usuario-form";
 	}
 	
 	@GetMapping("/eliminarUsuario/{id}")
@@ -60,7 +53,15 @@ public class UsuarioController {
 		return "redirect:/usuario";
 	}
 	
-	@PostMapping("/editarUsuario")
+
+	@GetMapping("/editarUsuario/{id}")
+	public String modificarUsuario(Model model, @PathVariable(name="id") int idUsuario) throws Exception {
+		usuarioService.buscarUsuario(idUsuario);
+		model.addAttribute("editMode", "true");
+		return "usuario-form";
+	}
+	
+	@PostMapping("/postEditarUsuario")
 	public String postEditarUsuario(@ModelAttribute("usuario") Usuario usuario, BindingResult result, ModelMap model) {
 		if(result.hasErrors()) {
 			model.addAttribute("usuario", usuario);
@@ -81,7 +82,7 @@ public class UsuarioController {
 		return "redirect:/usuario";
 	}
 	
-	@GetMapping("/cancelarU")
+	@GetMapping("/cancelarUsuario")
 	public String cancelarEditar(ModelMap model) {
 		return "redirect:/usuario";	
 	}
