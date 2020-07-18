@@ -33,5 +33,82 @@ public class UnidadHabitacional implements Serializable{
 	@JoinColumn(name="IDBARRIO")
 	private Barrio barrio;
 	
+	public UnidadHabitacional() {
+		
+	}
 
+	public UnidadHabitacional(Long idUnidadHabitacional, String direccion, Barrio barrio) {
+		super();
+		this.idUnidadHabitacional = idUnidadHabitacional;
+		this.direccion = direccion;
+		this.barrio = barrio;
+	}
+
+	public Long getIdUnidadHabitacional() {
+		return idUnidadHabitacional;
+	}
+
+	public void setIdUnidadHabitacional(Long idUnidadHabitacional) {
+		this.idUnidadHabitacional = idUnidadHabitacional;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public Barrio getBarrio() {
+		return barrio;
+	}
+
+	public void setBarrio(Barrio barrio) {
+		this.barrio = barrio;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((barrio == null) ? 0 : barrio.hashCode());
+		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
+		result = prime * result + ((idUnidadHabitacional == null) ? 0 : idUnidadHabitacional.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UnidadHabitacional other = (UnidadHabitacional) obj;
+		if (barrio == null) {
+			if (other.barrio != null)
+				return false;
+		} else if (!barrio.equals(other.barrio))
+			return false;
+		if (direccion == null) {
+			if (other.direccion != null)
+				return false;
+		} else if (!direccion.equals(other.direccion))
+			return false;
+		if (idUnidadHabitacional == null) {
+			if (other.idUnidadHabitacional != null)
+				return false;
+		} else if (!idUnidadHabitacional.equals(other.idUnidadHabitacional))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "UnidadHabitacional [idUnidadHabitacional=" + idUnidadHabitacional + ", direccion=" + direccion
+				+ ", barrio=" + barrio + "]";
+	}
+	
 }

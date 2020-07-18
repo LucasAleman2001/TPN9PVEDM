@@ -42,8 +42,7 @@ public class IBarrioServiceImp implements IBarrioService {
 
 	@Override
 	public Barrio buscarBarrio(Long idBarrio) throws Exception {
-		iBarrioRepository.findById(idBarrio);
-		return null;
+		return iBarrioRepository.findById(idBarrio).orElseThrow(()-> new Exception("El barrio no existe"));
 	}
 
 }

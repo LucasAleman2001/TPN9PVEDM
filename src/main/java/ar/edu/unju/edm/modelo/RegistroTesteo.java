@@ -41,6 +41,10 @@ public class RegistroTesteo implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="IDPERSONATESTEADA")
 	private PersonaTesteada persona_testeada;
+	
+	public RegistroTesteo() {
+		
+	}
 
 	public RegistroTesteo(Long idRegistroTesteo, LocalDateTime fechahora, UnidadHabitacional unidad_habitacional,
 			PersonaTesteada persona_testeada) {

@@ -6,11 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import ar.edu.unju.edm.modelo.Barrio;
+import ar.edu.unju.edm.modelo.UnidadHabitacional;
 
 @Repository
-public interface IBarrioRepository extends CrudRepository<Barrio, Long>{
+public interface IUnidadHabitacionalRepository extends CrudRepository<UnidadHabitacional, Long>{
 	
 	@Query
-	public List<Barrio> listarBarrios();
+	public List<UnidadHabitacional> listarUnidadesHabitacionales();
 }

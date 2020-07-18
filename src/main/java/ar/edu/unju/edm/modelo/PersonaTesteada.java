@@ -26,7 +26,7 @@ public class PersonaTesteada implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO,generator="native")
 	@GenericGenerator(name="native",strategy="native")
 	@Column(name="IDPersona")
-	private int idPersonaTesteada;
+	private Integer idPersonaTesteada;
 	@Column
 	private String documento;
 	@Column
@@ -36,7 +36,12 @@ public class PersonaTesteada implements Serializable{
 	@Column
 	private String resultadoTesteado;
 	
-	public PersonaTesteada(int idPersonaTesteada, String documento, String apellido, String nombres, String resultadoTesteado) {
+	public PersonaTesteada() {
+		
+	}
+
+	public PersonaTesteada(int idPersonaTesteada, String documento, String apellido, String nombres,
+			String resultadoTesteado) {
 		super();
 		this.idPersonaTesteada = idPersonaTesteada;
 		this.documento = documento;
@@ -44,9 +49,7 @@ public class PersonaTesteada implements Serializable{
 		this.nombres = nombres;
 		this.resultadoTesteado = resultadoTesteado;
 	}
-	public PersonaTesteada() {
-		// TODO Auto-generated constructor stub
-	}
+
 	public int getIdPersonaTesteada() {
 		return idPersonaTesteada;
 	}
@@ -135,8 +138,8 @@ public class PersonaTesteada implements Serializable{
 
 	@Override
 	public String toString() {
-		return "PersonaTesteada [ident=" + idPersonaTesteada + ", documento=" + documento + ", apellido=" + apellido + ", nombres="
-				+ nombres + ", resultadoTesteado=" + resultadoTesteado + "]";
+		return "PersonaTesteada [idPersonaTesteada=" + idPersonaTesteada + ", documento=" + documento + ", apellido="
+				+ apellido + ", nombres=" + nombres + ", resultadoTesteado=" + resultadoTesteado + "]";
 	}
 	
 }

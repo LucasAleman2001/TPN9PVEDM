@@ -39,7 +39,7 @@ public class BarrioController {
 	@GetMapping("/mostarBarrios")
 	public String mostrarBarrios(Model model) {
 		model.addAttribute("barrios", iBarrioService.listarBarrios());
-		return("barrios");
+		return "barrios";
 	}
 	
 	@GetMapping("/editarBarrio/{id}")
